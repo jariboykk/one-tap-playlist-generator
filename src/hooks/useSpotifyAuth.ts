@@ -10,7 +10,9 @@ const SPOTIFY_SCOPES = [
 ].join(' ');
 
 export const useSpotifyAuth = () => {
-  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const initialToken = localStorage.getItem('spotify_access_token');
+  console.log('Initial access token from localStorage:', initialToken);
+  const [accessToken, setAccessToken] = useState<string | null>(initialToken);
   const [error, setError] = useState<string | null>(null);
 
   const login = () => {
@@ -58,7 +60,11 @@ export const useSpotifyAuth = () => {
       }
     };
 
-    handleCallback();
+    // URLにcodeパラメータがある場合のみ実行
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('code')) {
+      handleCallback();
+    }
   }, []);
 
   return { accessToken, error, login };
