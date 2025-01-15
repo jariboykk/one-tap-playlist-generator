@@ -64,12 +64,10 @@ export const useSpotifyAuth = () => {
             localStorage.setItem('spotify_refresh_token', data.refresh_token);
           }
           
-          const redirectUri = new URL(import.meta.env.VITE_SPOTIFY_REDIRECT_URI);
-          window.location.href = redirectUri.origin;
+          window.location.href = import.meta.env.VITE_SPOTIFY_REDIRECT_URI.split('/callback')[0];
         } catch (err) {
           setError('Failed to authenticate with Spotify');
-          const redirectUri = new URL(import.meta.env.VITE_SPOTIFY_REDIRECT_URI);
-          window.location.href = redirectUri.origin;
+          window.location.href = import.meta.env.VITE_SPOTIFY_REDIRECT_URI.split('/callback')[0];
         }
       }
     };
