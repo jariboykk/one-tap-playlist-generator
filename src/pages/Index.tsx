@@ -3,6 +3,7 @@ import { SituationGrid } from "../components/SituationGrid";
 import { SpotifyPlayer } from "../components/SpotifyPlayer";
 import { ShareButtons } from "../components/ShareButtons";
 import { SpotifyLoginButton } from "../components/SpotifyLoginButton";
+import { RandomTrackButton } from "../components/RandomTrackButton";
 
 const Index = () => {
   const [selectedSituation, setSelectedSituation] = useState<string | null>(null);
@@ -10,7 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white p-4">
       <div className="max-w-7xl mx-auto">
-        <header className="text-center mb-12 animate-fade-in">
+        <header className="text-center mb-12 animate-fade-in px-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
             <span className="bg-gradient-to-r from-[#2ebd59] to-[#1ed760] bg-clip-text text-transparent">
               Rhythm
@@ -21,7 +22,10 @@ const Index = () => {
             Your instant playlist creator
           </p>
           <div className="mt-4">
-            <SpotifyLoginButton />
+            <RandomTrackButton />
+            <div className="mt-4">
+              <SpotifyLoginButton />
+            </div>
           </div>
         </header>
 
