@@ -1,4 +1,4 @@
-import { Sun, Moon, Headphones, Dumbbell, PartyPopper, Car, Gamepad2, Activity, Broom } from "lucide-react";
+import { Sun, Moon, Headphones, Dumbbell, PartyPopper, Car, Gamepad2, Activity } from "lucide-react";
 import { SituationButton } from "./SituationButton";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -12,7 +12,7 @@ const situations = [
   { icon: Moon, label: "Sleep" },
   { icon: Gamepad2, label: "Gaming" },
   { icon: Activity, label: "On the Go" },
-  { icon: Broom, label: "Housework" },
+  { icon: Activity, label: "Housework" },
 ];
 
 interface SituationGridProps {
