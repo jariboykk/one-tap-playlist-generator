@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { SituationGrid } from "@/components/SituationGrid";
-import { SpotifyPlayer } from "@/components/SpotifyPlayer";
-import { ShareButtons } from "@/components/ShareButtons";
+import { SituationGrid } from "../components/SituationGrid";
+import { SpotifyPlayer } from "../components/SpotifyPlayer";
+import { ShareButtons } from "../components/ShareButtons";
+import { SpotifyLoginButton } from "../components/SpotifyLoginButton";
 
 const Index = () => {
   const [selectedSituation, setSelectedSituation] = useState<string | null>(null);
@@ -19,6 +20,9 @@ const Index = () => {
           <p className="text-white/60 text-lg md:text-xl font-light">
             Your instant playlist creator
           </p>
+          <div className="mt-4">
+            <SpotifyLoginButton />
+          </div>
         </header>
 
         <SituationGrid onSelect={setSelectedSituation} />
